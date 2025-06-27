@@ -1,0 +1,32 @@
+<h2>{{ editando ? 'Editar Música' : 'Cadastrar Nova Música' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="salvar()">
+    <label>Título:
+        <input type="text" formControlName="titulo" />
+    </label><br />
+
+    <label>Artista:
+        <input type="text" formControlName="artista" />
+    </label><br />
+
+    <label>Álbum:
+        <input type="text" formControlName="album" />
+    </label><br />
+
+    <label>Data de Lançamento:
+        <input type="date" formControlName="dataLancamento" />
+    </label><br />
+
+    <label>Artista está vivo?
+        <input type="checkbox" formControlName="artistaVivo" />
+    </label><br />
+
+    <label>Gênero:
+        <input type="text" formControlName="genero" />
+    </label><br />
+
+    <button type="submit" [disabled]="form.invalid">
+        {{ editando ? 'Atualizar' : 'Cadastrar' }}
+    </button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+</form>

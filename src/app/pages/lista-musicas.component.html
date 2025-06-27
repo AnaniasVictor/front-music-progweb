@@ -1,0 +1,17 @@
+<h2>Músicas Cadastradas</h2>
+
+<button routerLink="/cadastro">+ Nova Música</button>
+<button (click)="voltarParaHome()" class="btn-voltar">Voltar à tela inicial</button>
+
+
+<div *ngIf="musicas.length === 0">
+    <p>Nenhuma música cadastrada.</p>
+</div>
+
+<ul *ngIf="musicas.length > 0">
+    <li *ngFor="let musica of musicas">
+        {{ musica.titulo }} - {{ musica.artista }}
+        <button [routerLink]="['/cadastro', musica.id]">Editar</button>
+        <button (click)="excluirMusica(musica.id!)">Excluir</button>
+    </li>
+</ul>
